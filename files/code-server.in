@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: code_server
+# REQUIRE: LOGIN NETWORKING DAEMON
+# KEYWORD: shutdown
+#
+# Add these lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# code_server_enable (bool):	    Set to NO by default.
+#				                    Set it to YES to enable code-server.
+# OPTIONAL:
+# code_server_user_config (user):	Set to nobody by default.
+#				                    Set to the user to run the server as.
+# code_server_group_config (group):	Set to nobody by default.
+#				                    Set to the group to run the server as.
+# code_server_config_file (filepath):	Set to /var/code-server/nobody/config.yaml by default.
+#				                        Set to the full filepath of the config file.
+# code_server_user_data_dir (path):	Set to /var/code-server/nobody/user-data by default.
+#				                    Set to the directory path to use for user data.
+# code_server_extensions_dir (path):	Set to /var/code-server/nobody/extensions by default.
+#				                        Set to the directory path to use for extensions.
+# code_server_service_url (url):	Set to https://open-vsx.org/vscode/gallery by default.
+#				                    Set to the service url of an extensions marketplace.
+# code_server_item_url (url):	Set to https://open-vsx.org/vscode/item by default.
+#				                Set to the item url of an extensions marketplace.
+#
+# NOTE
+# The file permissions one has when using vscode from a web browser is dependant
+# on the user/group you choose to run this service. It defaults to "nobody" for
+# security reasons but you will probably want to specify a different user with
+# the appropriate permissions for your use case in "/etc/rc.conf" like:
+# code_server_user="myuser"
+# code_server_group="myuser"
+
+. /etc/rc.subr
+
+name=code_server
+rcvar=code_server_enable
+
+load_rc_config $name
+
+: ${code_server_enable:=no}
+: ${code_server_user:=nobody}
+: ${code_server_group:=nobody}
+
+default_user_dir="/var/code-server/${code_server_user}"
+: ${code_server_config_file="${default_user_dir}/config.yaml"}
+: ${code_server_user_data_dir="${default_user_dir}/user-data"}
+: ${code_server_extensions_dir="${default_user_dir}/extensions"}
+: ${code_server_service_url="https://open-vsx.org/vscode/gallery"}
+: ${code_server_item_url="https://open-vsx.org/vscode/item"}
+
+export PATH=/usr/local/bin:$PATH
+export SERVICE_URL=${code_server_service_url}
+export ITEM_URL=${code_server_item_url}
+export XDG_DATA_HOME="${default_user_dir}"
+export XDG_CONFIG_HOME="${default_user_dir}"
+
+start_precmd="${name}_prestart"
+
+command="/usr/local/bin/code-server"
+command_args="--config ${code_server_config_file} --user-data-dir ${code_server_user_data_dir} --extensions-dir ${code_server_extensions_dir} > /dev/null 2>&1 &"
+procname="node"
+
+code_server_prestart()
+{
+    install -d -o ${code_server_user}  ${default_user_dir}
+}
+
+run_rc_command "$1"
