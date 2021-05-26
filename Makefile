@@ -1,5 +1,3 @@
-# $FreeBSD$
-
 PORTNAME=	code-server
 DISTVERSION=	3.10.2
 CATEGORIES=	editors

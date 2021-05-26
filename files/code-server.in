@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# $FreeBSD$
-#
 # PROVIDE: code_server
 # REQUIRE: LOGIN NETWORKING DAEMON
 # KEYWORD: shutdown
@@ -38,6 +36,7 @@
 . /etc/rc.subr
 
 name=code_server
+desc="VS Code code-server"
 rcvar=code_server_enable
 
 load_rc_config $name
