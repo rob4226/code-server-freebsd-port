@@ -1,4 +1,6 @@
-# FreeBSD Port for code-server https://github.com/cdr/code-server
+# FreeBSD Port for code-server
+
+[https://github.com/cdr/code-server][1]
 
 ## Run VS Code on any machine anywhere and access it in the browser
 
@@ -6,9 +8,7 @@
 
 > Submitted to be added to the FreeBSD Ports Tree on 5/25/2021: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=256144
 
-## **editors/code-server**
-
-</br>
+## **www/code-server**
 
 ### **Install**
 
@@ -21,7 +21,7 @@ pkg install code-server
 **Or using ports:**
 
 ```sh
-cd /usr/ports/editors/code-server
+cd /usr/ports/www/code-server
 make install clean
 ```
 
@@ -67,3 +67,5 @@ Other available variables to use in in `/etc/rc.conf` when using as a service:
 IP address, port, and more can be set in `config.yaml`
 
 See `cdr/code-server` repo for docs: https://github.com/cdr/code-server
+
+[1]: https://github.com/cdr/code-server

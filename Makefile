@@ -1,6 +1,6 @@
 PORTNAME=	code-server
 DISTVERSION=	3.10.2
-CATEGORIES=	editors
+CATEGORIES=	www
 MASTER_SITES= https://registry.npmjs.org/code-server/-/
 
 MAINTAINER=	FreeBSD@appkingsoftware.com

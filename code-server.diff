@@ -1,14 +1,12 @@
-diff --git a/editors/code-server/Makefile b/editors/code-server/Makefile
+diff --git a/www/code-server/Makefile b/www/code-server/Makefile
 new file mode 100644
-index 000000000000..2a5f1623f3b4
+index 000000000000..881eb8f602eb
 --- /dev/null
-+++ b/editors/code-server/Makefile
-@@ -0,0 +1,61 @@
-+# $FreeBSD$
-+
++++ b/www/code-server/Makefile
+@@ -0,0 +1,59 @@
 +PORTNAME=	code-server
 +DISTVERSION=	3.10.2
-+CATEGORIES=	editors
++CATEGORIES=	www
 +MASTER_SITES= https://registry.npmjs.org/code-server/-/
 +
 +MAINTAINER=	FreeBSD@appkingsoftware.com
@@ -65,25 +63,23 @@ index 000000000000..2a5f1623f3b4
 +	${RLN} ${STAGEDIR}${DATADIR}/out/node/entry.js ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 +
 +.include <bsd.port.mk>
-diff --git a/editors/code-server/distinfo b/editors/code-server/distinfo
+diff --git a/www/code-server/distinfo b/www/code-server/distinfo
 new file mode 100644
 index 000000000000..ddd93c3007b0
 --- /dev/null
-+++ b/editors/code-server/distinfo
++++ b/www/code-server/distinfo
 @@ -0,0 +1,3 @@
 +TIMESTAMP = 1621872897
 +SHA256 (code-server-3.10.2.tgz) = 357e0248fd8d9ca687776d3f688b30e7b2e5a873443557c6ee2d4a858fa5c247
 +SIZE (code-server-3.10.2.tgz) = 25745056
-diff --git a/editors/code-server/files/code-server.in b/editors/code-server/files/code-server.in
+diff --git a/www/code-server/files/code-server.in b/www/code-server/files/code-server.in
 new file mode 100644
-index 000000000000..3b3b8c3bfc37
+index 000000000000..9d26898ebdc5
 --- /dev/null
-+++ b/editors/code-server/files/code-server.in
-@@ -0,0 +1,73 @@
++++ b/www/code-server/files/code-server.in
+@@ -0,0 +1,72 @@
 +#!/bin/sh
 +
-+# $FreeBSD$
-+#
 +# PROVIDE: code_server
 +# REQUIRE: LOGIN NETWORKING DAEMON
 +# KEYWORD: shutdown
@@ -120,6 +116,7 @@ index 000000000000..3b3b8c3bfc37
 +. /etc/rc.subr
 +
 +name=code_server
++desc="VS Code code-server"
 +rcvar=code_server_enable
 +
 +load_rc_config $name
@@ -153,11 +150,11 @@ index 000000000000..3b3b8c3bfc37
 +}
 +
 +run_rc_command "$1"
-diff --git a/editors/code-server/pkg-descr b/editors/code-server/pkg-descr
+diff --git a/www/code-server/pkg-descr b/www/code-server/pkg-descr
 new file mode 100644
 index 000000000000..28070b1919c5
 --- /dev/null
-+++ b/editors/code-server/pkg-descr
++++ b/www/code-server/pkg-descr
 @@ -0,0 +1,8 @@
 +This is a port of code-server which allows you to run VS Code on any machine
 +anywhere and access it in the browser. Code-server takes the open source core
@@ -167,11 +164,11 @@ index 000000000000..28070b1919c5
 +script to allow for easy control as a service and start on boot.
 +
 +WWW: https://github.com/cdr/code-server/
-diff --git a/editors/code-server/pkg-plist b/editors/code-server/pkg-plist
+diff --git a/www/code-server/pkg-plist b/www/code-server/pkg-plist
 new file mode 100644
 index 000000000000..9f5fdbb14025
 --- /dev/null
-+++ b/editors/code-server/pkg-plist
++++ b/www/code-server/pkg-plist
 @@ -0,0 +1,4931 @@
 +bin/code-server
 +%%DATADIR%%/LICENSE.txt
