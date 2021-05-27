@@ -104,7 +104,7 @@ pre-build:
 	@${ECHO_CMD} 'yarn-offline-mirror "../yarn-offline-cache"' >> ${WRKSRC}/.yarnrc
 	@${ECHO_CMD} 'nodedir "${WRKDIR}/node-v${NODE_VER}"' >> ${WRKSRC}/.yarnrc
 	@cd ${PKGJSONSDIR} && \
-	for dir in `${FIND} . -type f -name package.json -exec dirname {} ';'`; do \
+	for dir in lib/vscode lib/vscode/extensions lib/vscode/extensions/notebook-markdown-extensions lib/vscode/extensions/npm; do \
 		cd ${WRKSRC}/$${dir} && ${SETENV} HOME=${WRKDIR} XDG_CACHE_HOME=${WRKDIR}/.cache \
 			${YARN_CMD} --production --frozen-lockfile --offline; \
 	done
