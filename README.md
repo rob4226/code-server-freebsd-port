@@ -1,3 +1,5 @@
+![platform FreeBSD](https://img.shields.io/badge/platform-FreeBSD-red)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Rob4226/code-server-freebsd-port)
 # FreeBSD Port for code-server
 
 [https://github.com/cdr/code-server][1]
