@@ -1,3 +1,9 @@
-TIMESTAMP = 1621872897
+TIMESTAMP = 1622132841
 SHA256 (code-server-3.10.2.tgz) = 357e0248fd8d9ca687776d3f688b30e7b2e5a873443557c6ee2d4a858fa5c247
 SIZE (code-server-3.10.2.tgz) = 25745056
+SHA256 (code-server-npm-modules-3.10.2.tgz) = 732e15699e433cea0c92486adaf4051af7ba2fcea63d9fe2f3f3aa220ee27b50
+SIZE (code-server-npm-modules-3.10.2.tgz) = 55436398
+SHA256 (code-server-yarn-modules-3.10.2.tgz) = 7eea975bcf6cb7ed6ce1691f041fa6f8afa71b00166e33fb9819cb936a578ea0
+SIZE (code-server-yarn-modules-3.10.2.tgz) = 80220621
+SHA256 (node-v14.17.0-headers.tar.gz) = cc143d20f827a9a307ee8c1a9c5c403d3d254690bf9329094cf679064990e456
+SIZE (node-v14.17.0-headers.tar.gz) = 596784
